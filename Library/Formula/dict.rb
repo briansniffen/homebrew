@@ -28,8 +28,8 @@ class Dict <Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}"
-    # install the client
-    system "make install.dict"
+    # install the client and server
+    system "make install"
 
     # set up the conf file
     (etc+'dict.conf').write DICT_CONF
