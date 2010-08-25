@@ -8,7 +8,7 @@ class Openldap <Formula
   depends_on 'berkeley-db'
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--enable-bdb", "--disable-debug", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make install"
   end
 end
