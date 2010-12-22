@@ -1,8 +1,8 @@
 require 'formula'
 
 class Wine <Formula
-  url 'http://downloads.sourceforge.net/project/wine/Source/wine-1.2.tar.bz2'
-  sha1 'dc37a32edb274167990ca7820f92c2d85962e37d'
+  url 'http://downloads.sourceforge.net/project/wine/Source/wine-1.2.2.tar.bz2'
+  sha1 '8b37c8e0230dd6a665d310054f4e36dcbdab7330'
   homepage 'http://www.winehq.org/'
   head 'git://source.winehq.org/git/wine.git'
 
@@ -27,7 +27,12 @@ EOS
     ENV.append "CXXFLAGS", "-D_DARWIN_NO_64_BIT_INODE"
     ENV.append "LDFLAGS", "#{build32} -framework CoreServices -lz -lGL -lGLU"
 
-    args = ["--prefix=#{prefix}", "--x-include=/usr/X11/include/", "--x-lib=/usr/X11/lib/"]
+    args = ["--prefix=#{prefix}",
+            "--x-include=/usr/X11/include/",
+            "--x-lib=/usr/X11/lib/",
+            "--with-x",
+            "--with-coreaudio",
+            "--with-opengl"]
     args << "--without-freetype" if snow_leopard_64?
     args << "--disable-win16" if MACOS_VERSION < 10.6
 
@@ -59,8 +64,8 @@ EOS
     You may also want to get winetricks:
       brew install winetricks
 
-    If you plan to use 3D applications, like games, you will need
-    to check "Emulate a virtual desktop" in winecfg's "Graphics" tab.
+    To use 3D applications, like games, check "Emulate a virtual desktop" in
+    winecfg's "Graphics" tab.
     EOS
   end
 end
