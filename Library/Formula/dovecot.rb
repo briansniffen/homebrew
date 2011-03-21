@@ -13,6 +13,7 @@ class Dovecot < Formula
                           "--libexecdir=#{libexec}",
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
+                          "--with-ioloop=poll",
                           "--with-ssl=openssl"
     system "make install"
   end
