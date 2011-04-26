@@ -26,8 +26,8 @@ EOS
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--infodir=#{info}",
-			  "--disable-dependency-tracking",
+                          "--disable-dependency-tracking",
                           "--enable-multibyte"
-    system "make install CFLAGS='-arch ppc -arch i386 -arch x86_64' LDFLAGS=' -arch ppc -arch i386 -arch x86_64'"
+    system "make install CFLAGS='-arch i386 -arch x86_64' LDFLAGS=' -arch ppc -arch i386 -arch x86_64'"
   end
 end
