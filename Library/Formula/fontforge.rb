@@ -30,7 +30,8 @@ class Fontforge < Formula
     # Fix hard-coded install locations that don't respect the target bindir
     inreplace "Makefile" do |s|
       s.gsub! "/Applications", "$(prefix)"
-      s.gsub! "ln -s /usr/local/bin/fontforge", "ln -s $(bindir)/fontforge"
+      s.gsub! "/usr/local/bin", "$(bindir)"
+      s.gsub! "$(bindir)/ginstall", "/usr/local/bin/ginstall"
     end
 
     system "make"
