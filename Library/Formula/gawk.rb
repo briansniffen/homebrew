@@ -8,6 +8,8 @@ class Gawk < Formula
 
   fails_with_llvm "Undefined symbols when linking", :build => "2326"
 
+  depends_on 'readline'
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
