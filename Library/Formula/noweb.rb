@@ -10,7 +10,6 @@ class Noweb < Formula
 
   def install
     Dir.chdir "src" do
-      system "bash", "awkname", "awk"
       system "make LIBSRC=icon ICONC=icont CFLAGS='-U_POSIX_C_SOURCE -D_POSIX_C_SOURCE=1'"
 
       kpse = `which kpsewhich`
