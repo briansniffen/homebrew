@@ -15,6 +15,8 @@ class Dovecot < Formula
                           "--localstatedir=#{var}",
                           "--with-ssl=openssl"
     system "make install"
+    libexec.install 'imap'
+    ln_s libexec+'imap', bin
   end
 
   def caveats; <<-EOS
