@@ -11,7 +11,8 @@ class Notmuch < Formula
 
   def install
     # requires a newer emacs than OS X provides, so disable the bindings
-    system "./configure", "--prefix=#{prefix}", "--without-emacs"
+    # I installed emacs 24, so turn emacs on again
+    system "./configure", "--prefix=#{prefix}"
     system "make install"
     system "install_name_tool", "-change", "libnotmuch.2.dylib",
                                 "#{lib}/libnotmuch.2.dylib", "#{bin}/notmuch"
